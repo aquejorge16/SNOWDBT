@@ -1,0 +1,26 @@
+version: 2
+
+models:
+  - name: stg_openfoodfacts
+    description: "Modelo bronce: datos parseados directamente desde JSON sin limpiar"
+    columns:
+      - name: id
+        description: "ID del producto (puede venir duplicado o nulo)"
+      - name: product_name
+        description: "Nombre del producto"
+      - name: brands
+        description: "Marca del producto"
+      - name: categories
+        description: "Categorías del producto"
+      - name: nutriscore_grade
+        description: "Calificación Nutriscore"
+      - name: countries_tags
+        description: "Etiquetas de país"
+      - name: ingredients
+        description: "Ingredientes"
+      - name: code
+        description: "Código del producto"
+      - name: quantity
+        description: "Cantidad declarada"
+      - name: nutriments
+        description: "Campo JSON con los nutrimentos del producto"

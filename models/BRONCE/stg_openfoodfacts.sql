@@ -1,15 +1,17 @@
-{{ config(materialized='view') }}
+{{ config(
+    materialized='view',
+    tags=['bronce']
+) }}
 
 SELECT
-    raw:"_id"::STRING                AS id,
-    raw:"product_name"::STRING       AS product_name,
-    raw:"brands"::STRING             AS brands,
-    raw:"categories"::STRING         AS categories,
-    raw:"countries"::STRING          AS countries,
-    raw:"nutriments"                 AS nutriments,
-    raw:"labels"::STRING             AS labels,
-    raw:"ingredients_text"::STRING   AS ingredients_text,
-    raw:"expiration_date"::STRING    AS expiration_date,
-    raw:"created_t"::TIMESTAMP       AS created_time,
-    raw:"last_modified_t"::TIMESTAMP AS last_modified_time
+    PARSE_JSON(raw):_id::STRING              AS id,
+    PARSE_JSON(raw):product_name::STRING     AS product_name,
+    PARSE_JSON(raw):brands::STRING           AS brands,
+    PARSE_JSON(raw):categories::STRING       AS categories,
+    PARSE_JSON(raw):nutriscore_grade::STRING AS nutriscore_grade,
+    PARSE_JSON(raw):countries_tags::ARRAY    AS countries_tags,
+    PARSE_JSON(raw):ingredients_text::STRING AS ingredients,
+    PARSE_JSON(raw):code::STRING             AS code,
+    PARSE_JSON(raw):quantity::STRING         AS quantity,
+    PARSE_JSON(raw):nutriments::VARIANT      AS nutriments
 FROM {{ source('openfoodfacts_raw', 'raw_openfoodfacts') }}
