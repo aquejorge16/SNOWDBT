@@ -1,0 +1,15 @@
+version: 2
+
+exposures:
+  - name: silver_openfoodfacts_dashboard
+    type: dashboard
+    label: "Dashboard de Productos Silver"
+    description: "Dashboard interno que analiza productos normalizados desde la capa Silver."
+    depends_on:
+      - ref('silver_openfoodfacts')
+    owner:
+      name: Jorge Aqué
+      email: jorge@example.com
+    maturity: low
+    tags: ["silver", "openfoodfacts", "dashboard"]
+    url: "https://miempresa.com/dashboards/silver_openfoodfacts"

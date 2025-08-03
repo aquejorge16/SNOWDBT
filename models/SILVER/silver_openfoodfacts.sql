@@ -12,7 +12,7 @@ WITH base AS (
         SELECT
             id,
             product_name,
-            brands,
+            {{ normalize_text("brands") }} AS brands,
             categories,
             nutriscore_grade,
             countries_tags,
