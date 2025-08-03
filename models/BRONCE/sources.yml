@@ -1,0 +1,12 @@
+version: 2
+
+sources:
+  - name: openfoodfacts_raw
+    database: OPENFOODFACTS
+    schema: OPENFOODFACTS_RAW
+    tables:
+      - name: raw_openfoodfacts
+        description: "Datos crudos cargados desde JSONL"
+        loaded_at_field: ingestion_date
+        freshness:
+          warn_after: { count: 1, period: day }
