@@ -1,11 +1,11 @@
 packages:
   - name: dbt_utils
     package: dbt-labs/dbt_utils
-    version: 0.9.1
+    version: 1.1.1
   - name: dbt_expectations
     package: calogica/dbt_expectations
-    version: 0.8.5
+    version: 0.9.0
   - name: dbt_date
     package: calogica/dbt_date
-    version: 0.7.2
-sha1_hash: 6292655f45116bbfbff0c0195bc9a0d64028237f
+    version: 0.8.1
+sha1_hash: bfc3f020119a2ecb2beaae486970075756b943d2
