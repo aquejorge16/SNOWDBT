@@ -1,0 +1,37 @@
+version: 2
+
+models:
+  - name: gold_openfoodfacts
+    description: "Gold: resumen por país, categoría y marca"
+    columns:
+      - name: country
+        description: "Nombre del país (extraído de countries_tags)"
+        tests: [not_null]
+
+      - name: category
+        description: "Categoría del producto"
+        tests: [not_null]
+
+      - name: brand
+        description: "Marca del producto"
+        tests: [not_null]
+
+      - name: nutriscore_grade
+        description: "Clasificación nutricional"
+        tests:
+          - accepted_values:
+              values: ['a', 'b', 'c', 'd', 'e']
+              config:
+                error_if: ">0"
+
+      - name: total_products
+        description: "Conteo total de productos"
+
+      - name: unique_products
+        description: "Conteo de productos únicos por código"
+
+      - name: avg_fat_100g
+        description: "Promedio de grasa por 100g"
+
+      - name: avg_sugars_100g
+        description: "Promedio de azúcar por 100g"
